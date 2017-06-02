@@ -12,6 +12,7 @@ class RoomTest < MiniTest::Test
     @room1 = Room.new("Reggae")
     @guest1 = Guest.new("Avie")
     @guest2 = Guest.new("Jan")
+    @guest3 = Guest.new("Ewan")
     @song1 = Song.new("Four non Blondes", "What's going on")
     @song2 = Song.new("HothouseFlowers", "It'll be easier in the morning")
   end
@@ -54,6 +55,13 @@ class RoomTest < MiniTest::Test
     @room1.add_record_to_songs(@song2)
     @room1.remove_record_from_songs(@song1)
     assert_equal(1, @room1.records_in_room())
+  end
+
+  def test_too_many_people?()
+    @room1.add_guest_to_singers(@guest1)
+    @room1.add_guest_to_singers(@guest2)
+    @room1.add_guest_to_singers(@guest3)
+    assert_equal(true, @room1.too_many_people?)
   end
 
 

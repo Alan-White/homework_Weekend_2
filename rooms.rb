@@ -32,7 +32,13 @@ class Room
     @songs.delete(record)
   end
 
-
+  def too_many_people?()
+    if singers_in_room < 3
+      return false
+    else 
+      return true
+    end
+  end
 
 
 end
