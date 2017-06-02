@@ -64,6 +64,10 @@ class RoomTest < MiniTest::Test
     assert_equal(true, @room1.too_many_people?)
   end
 
-
+  def test_too_many_people?()
+    @room1.add_guest_to_singers(@guest1)
+    @room1.add_guest_to_singers(@guest2)
+    assert_equal(false, @room1.too_many_people?)
+  end
 
 end
